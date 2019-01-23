@@ -1,0 +1,283 @@
+/*         -         -         -         -         -          -          -          -           */
+/*      styles below inspired by >>> http://jackschaedler.github.io/circles-sines-signals/      */
+/*         -         -         -         -         --          -          -                     */
+
+/* ~'~._.~'~._.~'~._.~'~._.~'~._.~'~. GENERAL '~._.~'~._.~'~._.~'~._.~'~._.~'~*/
+/* ~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~*/
+
+:root {
+  --pink: #de4173;
+  --red: #D71855;
+  --blue: #00BEE3;
+  --grey1: #272822;
+  --grey2: #555;
+  --grey3: #777;
+  --grey4: #c1c1c0;
+  --grey5: #f8f8f8;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color:#fff;
+  color: var(--grey2);
+}
+
+a {
+  color: var(--red);
+  text-decoration:none;
+}
+a:hover { text-decoration: underline; }
+a.nou:hover { text-decoration: none; }
+
+hr {
+  border: 1px solid var(--grey4);
+  margin: 30px auto;
+}
+
+::-moz-selection {
+  background: var(--red);
+  color:#fff;
+  text-shadow:none;
+}
+::selection {
+  background: var(--red);
+  color:#fff;
+  text-shadow:none;
+}
+
+/* ~'~._.~'~._.~'~._.~'~._.~'~._.~'~. TYPEOGRAPHY .~'~._.~'~._.~'~._.~'~._.~'~*/
+/* ~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~*/
+
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url('fonts/lato-reg.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url('fonts/lato-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Vollkorn';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Vollkorn Regular'), local('Vollkorn-Regular'), url('fonts/vollkorn-reg.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Vollkorn';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Vollkorn Italic'), local('Vollkorn-Italic'), url('fonts/vollkorn-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'inconsolata';
+  src: url('fonts/inconsolata.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Lato",sans-serif;
+  font-weight:300;
+  word-spacing:3px;
+  color: var(--grey2);
+  line-height:1;
+  margin:0; margin-bottom:23px;
+  text-transform:uppercase;
+  text-align: left;
+}
+
+h1 {
+  font-family: "inconsolata";
+  font-size:58px;
+  line-height:1.3em;
+  color: #000;
+  margin-bottom:0px;
+  font-weight:600;
+  text-align: center;
+}
+@media (min-width:640px) {
+  h1 { font-size:78px; }
+}
+
+h2 {
+  font-size: 38px;
+  color: var(--grey1);
+  margin: 0px 0px 5px;
+}
+h3 {
+  font-size: 18px;
+  color: var(--grey3);
+}
+
+p {
+  max-width: 800px;
+  text-align: left;
+  font-size: 22px;
+  line-height: 30px;
+  font-family: "Vollkorn", serif;
+  color: var(--grey1);
+}
+
+blockquote {
+  border-left: 10px solid var(--red);
+  padding-left: 30px;
+  max-width: 800px;
+  margin: 30px 0px;
+}
+blockquote p {
+  color: var(--red);
+  font-style: italic;
+  line-height: 32px;
+}
+cite {
+  color: var(--red);
+  float:right;
+}
+cite:before {
+  content:"— ";
+  color: var(--red);
+}
+
+/* ol, ul.syllabus {
+  text-align: left;
+  font-size: 24px;
+  margin-left: 30px;
+}
+
+ul.syllabus-sub {
+  text-align: left;
+  font-size: 16px;
+  margin-left: -20px;
+} */
+
+a.inactive { color: var(--grey3); }
+
+
+/* ~ ~ ~ ~ inline code samples ~ ~ ~ ~  */
+.k {
+  color: var(--pink);
+  background-color: var(--grey5);
+  border-radius: 3px;
+  border: 1px solid #AAA;
+  font-family: "inconsolata",Consolas,"Liberation Mono",Courier,monospace;
+  font-size: 0.8rem;
+  padding: 0.1rem 0.3rem;
+  position: relative;
+  top: -1px;
+  white-space: nowrap;
+}
+
+pre {
+  color: #444;
+  width:100%;
+  text-align: left;
+  border-radius: 15px;
+}
+/*highlight overrides*/
+.hljs-keyword { color: #66D9EF; }
+.hljs-tag .hljs-value,{ color: #E6DB74; }
+
+/* ~'~._.~'~._.~'~._.~'~._.~'~._.~'~. LAYOUT ~'~._.~'~._.~'~._.~'~._.~'~._.~'~*/
+/* ~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~*/
+
+header {
+  background-color: var(--grey1);
+  padding: 20px
+}
+header h1, header h2 {
+  color:#fff;
+  font-family: sans-serif;
+  font-weight: 100;
+  text-align: center;
+}
+
+section {
+  text-align: center;
+  padding:32px 0;
+}
+@media (min-width:640px) {
+  section { padding:64px 0; }
+}
+
+.video-section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+}
+
+.section-header{
+  margin: 0 auto 50px auto;
+  max-width: 960px;
+  width: 90%;
+}
+
+.wrap {
+  margin: 0 auto;
+  max-width: 960px;
+  width: 90%;
+}
+.container {
+  margin: 0 auto;
+  max-width: 960px;
+  width: 90%;
+  display: flex;
+}
+
+article { flex-grow: 2; }
+
+aside {
+  flex: 0 0 25%;
+  font-size: 14px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+aside div { margin-bottom:20px; }
+
+/* ~'~._.~'~._.~'~._.~'~._.~'~._.~'~._ MISC .~'~._.~'~._.~'~._.~'~._.~'~._.~'~*/
+/* ~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~._.~'~*/
+
+.button {
+  background: var(--red);
+  border: 0;
+  padding: 15px;
+  color: #fff;
+  border-radius: 10px;
+  margin:0 5px;
+  font-family: sans-serif;
+}
+
+.rwd {
+  max-width: 100%;
+}
+
+.youtube {
+  width: 100%;
+  height: 560px;
+}
+@media (max-width: 767px) {
+  .youtube { height: auto; }
+}
