@@ -163,8 +163,13 @@ cite:before {
 
 ol, ul {
   text-align: left;
-  font-size: 24px;
+  font-size: 20px;
   margin-left: 30px;
+}
+
+li  {
+  margin-bottom: 15px;
+  line-height: 26px;
 }
 
 /* ul.syllabus-sub {
